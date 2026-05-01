@@ -2,3 +2,35 @@ html{
     scroll-behavior: smooth;
 }
 
+.top-bar{
+    width:100%;
+    text-align: center;
+    font-size: small;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between; /* Logo left, links right */
+  align-items: center;
+  padding: 0 2rem;
+  height: 60px;
+}
+
+h1{
+    text-align: center;
+}
+
+.hero-content>p{
+    text-align: center;
+}
+
+.hero-buttons{
+    display: block;
+    margin: 0 auto;
+    padding: 0.5rem 1rem;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
