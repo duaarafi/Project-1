@@ -11,54 +11,42 @@ body{
 html{
     scroll-behavior: smooth;
 }
-
-.top-bar{
-    width:100%;
-    text-align: center;
-    font-size: 15px;
-    background-color: #123458;
-    padding: 12px;
-    margin-top: 0px;
-}
-
-.top-bar>p{
-    margin: 0%;
-    color: #FFDE42;
-    font-style: italic;
-}
-
-.nav-bar {
-    width: 100%;
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;
-    padding: 0 2rem;
-    height: 60px;
-    background-color: #C0E1D2;
-
-}
-
-h1{
-    text-align: center;
-}
-
 #hero{
-     background-color: #FFDE42;
-     width: 100%;
-     height: 500px;
-     justify-content: center;
-     padding-top: 250px;
+    background-image: url("../assets/images/background-t.jpg");
+    background-position: center;
+    height: 600px;
+
 }
-.hero-content>p{
-    text-align: center;
+.navbar-container{
+    display:flex;
+    align-items: center;
+    justify-content:space-between;
+    padding: 10px 20px;
+    width: 100%;
+    position: relative;
 }
 
-.hero-buttons{
-    display: block;
-    text-align: center;
+.logo{
+    font-family: Aclonica;
+    font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
-.card{
-    display: inline-block;
-    
+.links{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+
+}
+
+.buttons{
+    display: flex;
+    gap: 10px;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+
 }
