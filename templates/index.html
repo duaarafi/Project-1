@@ -8,61 +8,88 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Aclonica&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
+    
 <!-- Navigation Bar -->
-    <header class="navbar-container">
+    <header class="navbar">
+        <div class="nav-container">
 
+            <!-- Left Logo -->
             <div class="logo">
-                <p>Expensify</p>
+                <span class="logo-icon">💰</span>
+                <span class="logo-text">Name</span>
             </div>
 
-            <div class="links">
+            <!-- Navigation Links -->
+            <div class="nav-links">
                 <a href="#hero">Home</a>
                 <a href="#features">Features</a>
                 <a href="#">L3</a>
                 <a href="#">L4</a>
             </div>
 
-            <div class="buttons">
-                <a href="#" class="get-started">Get Started</a> 
-                <a href="#" class="login">Login</a>
+            <!-- Right Buttons -->
+            <div class="nav-actions">
+                <a href="../templates/login.html" class="login">Log in</a> 
+                <a href="../templates/signup.html" class="btn">Get Started</a>
             </div>
-
+        </div>
     </header>
-
+    
     <main>
-        
         <section id="hero">
-            <div class="hero-content"> 
-                <h1>Take Control of Your Expenses</h1> 
-                <p> Track, analyze, and manage your spending based on your lifestyle. </p> 
+            <div class="hero-container"> 
+
+                <!--Left Content-->
+                <div class="hero-text">
+                    <h1>Take control of your finances — <br>the smart way. </h1>
+                    <p> Managing money shouldn't be one-size-fits-all. Our platform adapts to your life — 
+                        whether you're a student budgeting pocket money, a salaried professional, or 
+                        running a business. Get personalized dashboards, UPI auto-categorization, and 
+                        real-time budget alerts — all in one place. </p> 
+                    <p class="slogan"> Track • Analyze • Save </p>    
+                </div>
+                    
+
+                <!--Right Content-->
+                <div class="hero-image">
+                    <img src="../assets/images/cat.jfif" alt="Dashboard Preview">
+                </div>
+
             </div>
-             <div class="top-bar">
-        <p> Track • Analyze • Save </p>
-    </div>
         </section>
 
-        <section id="features">  
-            <div class="feature-cards"> 
-                <div class="card"> 
-                    <h3>Visual Analytics</h3> 
-                    <p>Understand your spending with charts</p> 
-                </div> 
-                <div class="card"> 
-                    <h3>Smart Insights</h3> 
-                    <p>Get actionable insights from your spending data</p> 
-                </div> 
-                <div class="card"> 
-                    <h3>Auto Categorization</h3> 
-                    <p>Smartly track repeated transactions</p> 
-                </div> 
-                <div class="card"> 
-                    <h3>Secure Login</h3> 
-                    <p>Your data is safe and protected</p> 
-                </div> 
-            </div> 
-        </section>
+        <section id="features">
+            <div class="features-container">
+
+                <div class="card">
+                    <i class="fa-solid fa-chart-bar"></i>
+                    <h3>Visual Analytics</h3>
+                    <p>Understand your spending with charts</p>
+                </div>
+
+                <div class="card">
+                    <i class="fa-solid fa-eye"></i>
+                    <h3>Smart Insights</h3>
+                    <p>Get actionable insights from your spending data</p>
+                </div>
+
+                <div class="card">
+                    <i class="fa-solid fa-user-gear"></i>
+                    <h3>Auto Categorization</h3>
+                    <p>Smartly track repeated transactions</p>
+                </div>
+
+                <div class="card">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h3>Secure Login</h3>
+                    <p>Your data is safe and protected</p>
+                </div>
+
+            </div>
+        </section>        
 
     </main>
     
