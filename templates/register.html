@@ -10,7 +10,7 @@
   <!-- Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
 
-  <link rel="stylesheet" href="../static/signup.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='signup.css') }}">
 </head>
 
 <body>
@@ -24,30 +24,48 @@
         <h2>Get Started</h2>
         <p class="subtitle">Create your account</p>
 
-    <form>
+    <form method="POST" action="/register">
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% for category, message in messages %}
+            <p style="color: red;">{{ message }}</p>
+          {% endfor %}
+        {% endwith %}
 
         <div class="input-group">
             <span class="material-symbols-outlined">person</span>
-            <input type="text" required>
+            <input type="text" name="name" required>
             <label>Full Name</label>
         </div>
 
         <div class="input-group">
             <span class="material-symbols-outlined">mail</span>
-            <input type="email" required>
+            <input type="email" name="email" required>
             <label>Email</label>
         </div>
 
         <div class="input-group">
             <span class="material-symbols-outlined">lock</span>
-            <input type="password" required>
+            <input type="password" name="password" required>
             <label>Password</label>
         </div>
 
         <div class="input-group">
             <span class="material-symbols-outlined">lock</span>
-            <input type="password" required>
+            <input type="password" name="confirm_password" required>
             <label>Confirm Password</label>
+        </div>
+
+        <div class="input-group">
+            <span class="material-symbols-outlined">badge</span>
+            <select name="role" required>
+                <option value="" disabled selected>Select your role</option>
+                <option value="Student">Student</option>
+                <option value="Head of Family">Head of Family</option>
+                <option value="Daily Wager">Daily Wager</option>
+                <option value="Salaried Employee">Salaried Employee</option>
+                <option value="Business Owner">Business Owner</option>
+            </select>
         </div>
 
         <button type="submit">Create Account</button>
@@ -55,7 +73,7 @@
     </form>
 
     <p class="login-text">
-        Already have an account? <a href="../templates/login.html">Login</a>
+        Already have an account? <a href="/login">Login</a>
     </p>
 
     </div>

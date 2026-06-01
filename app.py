@@ -26,5 +26,7 @@ def test_db():
     except Exception as e:
         return f'Database connection failed: {str(e)}'
 
+from routes import *
+
 if __name__ == "__main__":
     app.run(debug=True)
