@@ -2,6 +2,7 @@ from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask import render_template
 
 app = Flask(__name__)
 
@@ -16,7 +17,7 @@ login_manager = LoginManager(app)
 
 @app.route("/")
 def home():
-    return "Smart Expense System is running!"
+    return render_template('index.html')
 
 @app.route('/test-db')
 def test_db():
