@@ -1,84 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Get Started</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up — Clarity</title>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <link rel="stylesheet" href="{{ url_for('static', filename='signup.css') }}">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 
-<body>
+<body class="auth-body">
 
-<div class="background-glow"></div>
-<div class="background-glow-2"></div>
+    <div class="auth-container">
 
-<div class="signup-container">
+        <!-- Logo -->
+        <a href="/" class="auth-logo">Clarity</a>
 
-    <div class="signup-box">
-        <h2>Get Started</h2>
-        <p class="subtitle">Create your account</p>
+        <!-- Heading -->
+        <h1 class="auth-heading">Create your account.</h1>
+        <p class="auth-subtext">Start tracking smarter today.</p>
 
-    <form method="POST" action="/register">
-
+        <!-- Flash Messages -->
         {% with messages = get_flashed_messages(with_categories=true) %}
-          {% for category, message in messages %}
-            <p style="color: red;">{{ message }}</p>
-          {% endfor %}
+            {% for category, message in messages %}
+                <p class="auth-error">{{ message }}</p>
+            {% endfor %}
         {% endwith %}
 
-        <div class="input-group">
-            <span class="material-symbols-outlined">person</span>
-            <input type="text" name="name" required>
-            <label>Full Name</label>
-        </div>
+        <!-- Form -->
+        <form class="auth-form" method="POST" action="/register">
 
-        <div class="input-group">
-            <span class="material-symbols-outlined">mail</span>
-            <input type="email" name="email" required>
-            <label>Email</label>
-        </div>
+            <!-- Full Name -->
+            <div class="form-group">
+                <label class="form-label">Full Name</label>
+                <input
+                    type="text"
+                    class="form-input"
+                    placeholder="John Doe"
+                    name="name"
+                    required
+                >
+            </div>
 
-        <div class="input-group">
-            <span class="material-symbols-outlined">lock</span>
-            <input type="password" name="password" required>
-            <label>Password</label>
-        </div>
+            <!-- Email -->
+            <div class="form-group">
+                <label class="form-label">Email Address</label>
+                <input
+                    type="email"
+                    class="form-input"
+                    placeholder="john@email.com"
+                    name="email"
+                    required
+                >
+            </div>
 
-        <div class="input-group">
-            <span class="material-symbols-outlined">lock</span>
-            <input type="password" name="confirm_password" required>
-            <label>Confirm Password</label>
-        </div>
+            <!-- Password -->
+            <div class="form-group">
+                <label class="form-label">Password</label>
+                <div class="input-wrapper">
+                    <input
+                        type="password"
+                        class="form-input"
+                        placeholder="Min. 8 characters"
+                        name="password"
+                        id="password"
+                        required
+                    >
+                    <span class="toggle-password"
+                    onclick="togglePassword('password')">
+                        <i class="fa-solid fa-eye"
+                        id="password-icon"></i>
+                    </span>
+                </div>
+            </div>
 
-        <div class="input-group">
-            <span class="material-symbols-outlined">badge</span>
-            <select name="role" required>
-                <option value="" disabled selected>Select your role</option>
-                <option value="Student">Student</option>
-                <option value="Head of Family">Head of Family</option>
-                <option value="Daily Wager">Daily Wager</option>
-                <option value="Salaried Employee">Salaried Employee</option>
-                <option value="Business Owner">Business Owner</option>
-            </select>
-        </div>
+            <!-- Confirm Password -->
+            <div class="form-group">
+                <label class="form-label">Confirm Password</label>
+                <div class="input-wrapper">
+                    <input
+                        type="password"
+                        class="form-input"
+                        placeholder="Repeat your password"
+                        name="confirm_password"
+                        id="confirm-password"
+                        required
+                    >
+                    <span class="toggle-password"
+                    onclick="togglePassword('confirm-password')">
+                        <i class="fa-solid fa-eye"
+                        id="confirm-password-icon"></i>
+                    </span>
+                </div>
+            </div>
 
-        <button type="submit">Create Account</button>
+            <!-- Role -->
+            <div class="form-group">
+                <label class="form-label">Your Role</label>
+                <select 
+                    name="role" 
+                    class="form-input form-select-custom"
+                    required
+                >
+                    <option value="" disabled selected>
+                        Select your role
+                    </option>
+                    <option value="Student">Student</option>
+                    <option value="Head of Family">
+                        Head of Family
+                    </option>
+                    <option value="Daily Wager">Daily Wager</option>
+                    <option value="Salaried Employee">
+                        Salaried Employee
+                    </option>
+                    <option value="Business Owner">
+                        Business Owner
+                    </option>
+                </select>
+            </div>
 
-    </form>
+            <!-- Submit -->
+            <button type="submit" class="auth-btn">
+                Create Account
+            </button>
 
-    <p class="login-text">
-        Already have an account? <a href="/login">Login</a>
-    </p>
+        </form>
+
+        <!-- Login Link -->
+        <p class="auth-switch">
+            Already have an account?
+            <a href="/login">Login</a>
+        </p>
 
     </div>
 
-</div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 
 </body>
 </html>
