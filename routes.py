@@ -62,4 +62,4 @@ def logout():
 @app.route('/dashboard')
 @login_required
 def dashboard():
-    return f'Welcome {current_user.name}! Your role is: {current_user.role}'
+    return render_template('dashboard.html')
