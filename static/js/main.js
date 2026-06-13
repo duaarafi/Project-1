@@ -20,3 +20,15 @@ function togglePassword(fieldId) {
         icon.classList.replace('fa-eye-slash', 'fa-eye');
     }
 }
+
+// Budget progress bar color
+document.querySelectorAll('.budget-progress-bar').forEach(bar => {
+    const width = parseFloat(bar.style.width);
+    if (width >= 100) {
+        bar.style.backgroundColor = '#EF4444';
+    } else if (width >= 80) {
+        bar.style.backgroundColor = '#F59E0B';
+    } else {
+        bar.style.backgroundColor = '#10B981';
+    }
+});

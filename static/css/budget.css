@@ -1,0 +1,126 @@
+/* ========================
+   BUDGET PAGE
+======================== */
+.budget-alert {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #FEE2E2;
+    border: 1px solid #FECACA;
+    color: #DC2626;
+    padding: 14px 20px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+.budget-alert i {
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.budget-list {
+    background-color: var(--color-white);
+    border-radius: 16px;
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+}
+
+.budget-row {
+    display: grid;
+    grid-template-columns: 200px 1fr 220px;
+    align-items: center;
+    gap: 24px;
+    padding: 20px 28px;
+    border-bottom: 1px solid var(--color-border);
+    transition: background-color 0.15s ease;
+}
+
+.budget-row:last-child {
+    border-bottom: none;
+}
+
+.budget-row:hover {
+    background-color: #F8F7FF;
+}
+
+.budget-category-name {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-heading);
+    margin: 0 0 4px;
+}
+
+.budget-category-spent {
+    font-size: 0.82rem;
+    color: var(--color-body);
+    margin: 0;
+}
+
+.budget-progress-wrapper {
+    height: 8px;
+    background-color: var(--color-border);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.budget-progress-bar {
+    height: 100%;
+    border-radius: 20px;
+    background-color: var(--color-success);
+    transition: width 0.4s ease, background-color 0.3s ease;
+}
+
+.budget-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--color-background);
+    border: 1.5px solid var(--color-border);
+    border-radius: 10px;
+    padding: 10px 14px;
+    transition: border-color 0.2s ease;
+}
+
+.budget-input-wrapper:focus-within {
+    border-color: var(--color-primary);
+}
+
+.budget-rupee {
+    font-size: 0.9rem;
+    color: var(--color-body);
+    flex-shrink: 0;
+}
+
+.budget-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--color-heading);
+    background: transparent;
+    width: 80px;
+}
+
+.budget-save-btn {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: 6px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background-color 0.2s ease;
+    font-size: 0.75rem;
+}
+
+.budget-save-btn:hover {
+    background-color: var(--color-primary-dark);
+}
