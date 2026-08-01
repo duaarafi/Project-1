@@ -1,25 +1,33 @@
-/* ========================
-   ROOT VARIABLES
-======================== */
+@font-face {
+    font-family:"Limelight" ;
+    src: url("./fonts/Limelight/Limelight-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Climatecrises" ;
+    src: url("./fonts/Climate_Crisis/ClimateCrisis-Regular-VariableFont_YEAR.ttf");
+}
+
+/* ROOT VARIABLES*/
+
 :root {
-    --color-primary: #4F46E5;
+    --color-primary: #930500;
     --color-primary-dark: #3730A3;
-    --color-background: #F8F7FF;
+    --color-background: #FFF8E7;
     --color-white: #FFFFFF;
-    --color-heading: #0F0E17;
+    --color-heading: #95BBEA;
     --color-body: #6B7074;
     --color-border: #E5E4F0;
     --color-success: #10B981;
     --color-warning: #F59E0B;
     --color-danger: #EF4444;
-    --font-heading: 'Syne', sans-serif;
+    --font-heading: "Limelight", sans-serif; 
     --font-body: 'Inter', sans-serif;
     --section-padding: 100px 0;
 }
 
-/* ========================
-   GLOBAL RESET
-======================== */
+
+/*GLOBAL RESET*/
 * {
     margin: 0;
     padding: 0;
@@ -43,9 +51,7 @@ a {
 }
 
 
-/* ========================
-   NAVBAR
-======================== */
+/*NAVBAR*/
 .navbar {
     padding: 20px 0;
     background-color: transparent;
@@ -97,9 +103,7 @@ a {
     color: var(--color-white);
 }
 
-/* ========================
-   HERO
-======================== */
+/*HERO*/
 .hero {
     min-height: 100vh;
     display: flex;
@@ -158,9 +162,7 @@ a {
     transform: translateY(-2px);
 }
 
-/* ========================
-   FEATURES
-======================== */
+/*FEATURES*/
 .features {
     padding: var(--section-padding);
     background-color: var(--color-white);
@@ -235,9 +237,7 @@ a {
     margin: 0;
 }
 
-/* ========================
-   FOOTER
-======================== */
+/*FOOTER*/
 footer {
     background-color: var(--color-heading);
     padding: 40px 0;
@@ -263,9 +263,7 @@ footer {
     margin: 0;
 }
 
-/* ========================
-   AUTH PAGES
-======================== */
+/* AUTH PAGES*/
 .auth-body {
     min-height: 100vh;
     display: flex;
