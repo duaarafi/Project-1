@@ -33,7 +33,7 @@
             {% endfor %}
         {% endwith %}
 
-        <form class="auth-form" method="POST">
+        <form class="auth-form" method="POST" onsubmit="return validateLogin()">
 
             <div class="form-group">
                 <label for="email" class="form-label">Email Address</label>
