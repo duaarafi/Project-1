@@ -58,8 +58,50 @@ def logout():
     flash('Logged out successfully.', 'info')
     return redirect(url_for('login'))
 
-# Dashboard
+
+# Dashboard - redirects based on role
+
 @app.route('/dashboard')
 @login_required
 def dashboard():
+    role = current_user.role
+    if role == 'Student':
+        return redirect(url_for('student_dashboard'))
+    elif role == 'Head of Family':
+        return redirect(url_for('family_dashboard'))
+    elif role == 'Daily Wager':
+        return redirect(url_for('dailywager_dashboard'))
+    elif role == 'Salaried Employee':
+        return redirect(url_for('salaried_dashboard'))
+    elif role == 'Business Owner':
+        return redirect(url_for('business_dashboard'))
+
+# Student Dashboard
+@app.route('/dashboard/student')
+@login_required
+def student_dashboard():
+    return render_template('dashboard.html', user=current_user)
+
+# Family Dashboard
+@app.route('/dashboard/family')
+@login_required
+def family_dashboard():
+    return render_template('dashboard.html', user=current_user)
+
+# Daily Wager Dashboard
+@app.route('/dashboard/daily-wager')
+@login_required
+def dailywager_dashboard():
+    return render_template('dashboard.html', user=current_user)
+
+# Salaried Dashboard
+@app.route('/dashboard/salaried')
+@login_required
+def salaried_dashboard():
+    return render_template('dashboard.html', user=current_user)
+
+# Business Dashboard
+@app.route('/dashboard/business')
+@login_required
+def business_dashboard():
     return render_template('dashboard.html', user=current_user)
