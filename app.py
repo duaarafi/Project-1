@@ -4,12 +4,17 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask import render_template
 
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
 app = Flask(__name__)
 
 # Database connection
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:srg%402005@localhost/smart_expense_db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SECRET_KEY'] = 'smartexpense123'
+app.config['SECRET_KEY'] = os.getenv("SECRET_KEY")
 
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
