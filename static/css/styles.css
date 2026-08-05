@@ -3,16 +3,11 @@
     src: url("./fonts/Limelight/Limelight-Regular.ttf");
 }
 
-@font-face {
-    font-family: "Climatecrises" ;
-    src: url("./fonts/Climate_Crisis/ClimateCrisis-Regular-VariableFont_YEAR.ttf");
-}
-
 /* ROOT VARIABLES*/
 
 :root {
     --color-primary: #930500;
-    --color-primary-dark:#95BBEA;
+    --color-secondary:#95BBEA;
     --color-background: #FFF8E7;
     --color-white: #FFFFFF;
     --color-heading: #95BBEA;
@@ -99,7 +94,7 @@ a {
 }
 
 .nav-cta:hover {
-    background-color: var(--color-primary-dark);
+    background-color: var(--color-secondary);
     color: var(--color-white);
 }
 
@@ -157,7 +152,7 @@ a {
 }
 
 .btn-primary-custom:hover {
-    background-color: var(--color-primary-dark);
+    background-color: var(--color-secondary);
     color: var(--color-white);
     transform: translateY(-2px);
 }
@@ -204,7 +199,7 @@ a {
 
 .feature-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(79, 70, 229, 0.08);
+    box-shadow: 0 12px 40px rgba(147, 5, 0, 0.08);
 }
 
 .feature-icon {
@@ -288,7 +283,7 @@ footer {
 }
 
 .auth-logo:hover {
-    color: var(--color-primary-dark);
+    color: var(--color-secondary);
 }
 
 .auth-heading {
@@ -375,7 +370,7 @@ footer {
 }
 
 .auth-btn:hover {
-    background-color: var(--color-primary-dark);
+    background-color: var(--color-secondary);
     transform: translateY(-2px);
 }
 
@@ -394,7 +389,7 @@ footer {
 }
 
 .auth-switch a:hover {
-    color: var(--color-primary-dark);
+    color: var(--color-secondary);
 }
 
 .auth-error {

@@ -68,6 +68,27 @@ function validateRegister()
     return true;
 }
 
+// Login form validation
+function validateLogin()
+{
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+
+    if(email == "")
+    {
+        alert("Please enter your email.");
+        return false;
+    }
+
+    if(password == "")
+    {
+        alert("Please enter your password.");
+        return false;
+    }
+
+    return true;
+}
+
 
 // Budget progress bar color
 var bars = document.querySelectorAll(".budget-progress-bar");

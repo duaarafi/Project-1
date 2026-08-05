@@ -1,0 +1,108 @@
+/* ========================
+   INSIGHT CARD
+======================== */
+.insight-card {
+    background-color: var(--color-heading);
+    border-radius: 14px;
+    padding: 22px 28px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.insight-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.insight-icon i {
+    font-size: 1rem;
+    color: var(--color-white);
+}
+
+.insight-text {
+    font-size: 0.95rem;
+    color: var(--color-white);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ========================
+   RANKED CATEGORY LIST
+======================== */
+.report-list {
+    background-color: var(--color-white);
+    border-radius: 16px;
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+}
+
+.report-list-header {
+    padding: 18px 28px;
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-heading);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.report-row {
+    padding: 20px 28px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.report-row:last-child {
+    border-bottom: none;
+}
+
+.report-row-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 10px;
+}
+
+.report-category-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #2C2C2A;
+}
+
+.report-category-amount {
+    font-size: 0.85rem;
+    color: var(--color-body);
+}
+
+.report-category-percent {
+    color: var(--color-heading);
+    font-weight: 600;
+}
+
+.report-percent-top {
+    color: var(--color-primary);
+}
+
+.report-bar-track {
+    height: 14px;
+    background-color: var(--color-background);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.report-bar-fill {
+    height: 100%;
+    background-color: var(--color-heading);
+    border-radius: 10px;
+    transition: width 0.4s ease;
+}
+
+.report-bar-top {
+    background-color: var(--color-primary);
+}

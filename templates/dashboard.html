@@ -20,6 +20,7 @@
 </head>
 <body class="dashboard-body">
 
+
     <!-- Sidebar -->
     <aside class="sidebar">
 
@@ -39,7 +40,7 @@
                 <span>Budget</span>
             </a>
 
-            <a href="/reports" class="sidebar-link">
+            <a href="/templates/reports.html" class="sidebar-link">
                 <i class="fa-solid fa-chart-pie"></i>
                 <span>Reports</span>
             </a>
@@ -55,7 +56,7 @@
     </aside>
     <!-- Main Content -->
     <main class="dashboard-main">
-
+    
         <!-- Welcome -->
         <div class="dashboard-topbar">
             <div>
@@ -65,7 +66,11 @@
                 <p class="dashboard-role">{{ user.role }}</p>
             </div>
         </div>
-
+        {% with messages = get_flashed_messages(with_categories=true) %}
+    {% for category, message in messages %}
+        <p class="auth-error">{{ message }}</p>
+    {% endfor %}
+{% endwith %}
         <!-- Quick Entry Input -->
         <form class="entry-form" method="POST" action="/add-entry">
             <div class="entry-input-wrapper">

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports — Clarity</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reports.css') }}">
+</head>
+<body class="dashboard-body">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <a href="/" class="sidebar-logo">Clarity</a>
+
+        <nav class="sidebar-nav">
+
+            <a href="/dashboard" class="sidebar-link">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="/budget" class="sidebar-link">
+                <i class="fa-solid fa-wallet"></i>
+                <span>Budget</span>
+            </a>
+
+            <a href="/reports" class="sidebar-link active">
+                <i class="fa-solid fa-chart-pie"></i>
+                <span>Reports</span>
+            </a>
+
+        </nav>
+
+        <a href="/logout" class="sidebar-logout">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span>Logout</span>
+        </a>
+
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+
+        <!-- Page Header -->
+        <div class="dashboard-topbar">
+            <div>
+                <h1 class="dashboard-welcome">Reports</h1>
+                <p class="dashboard-role">See where your money goes.</p>
+            </div>
+        </div>
+
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% for category, message in messages %}
+                <p class="auth-error">{{ message }}</p>
+            {% endfor %}
+        {% endwith %}
+
+        <!-- Insight Card -->
+        {% if top_category %}
+        <div class="insight-card">
+            <div class="insight-icon">
+                <i class="fa-solid fa-lightbulb"></i>
+            </div>
+            <p class="insight-text">
+                You've spent the most on
+                <strong>{{ top_category }}</strong>
+                this month — about
+                <strong>{{ top_percentage }}%</strong>
+                of your total spending.
+            </p>
+        </div>
+        {% endif %}
+
+        <!-- Ranked Category List -->
+        <div class="report-list">
+
+            <div class="report-list-header">
+                Ranked by spending
+            </div>
+
+            {% for category in categories %}
+            <div class="report-row">
+                <div class="report-row-top">
+                    <span class="report-category-name">{{ category.name }}</span>
+                    <span class="report-category-amount">
+                        ₹{{ category.spent }}
+                        <span class="report-category-percent{% if loop.first %} report-percent-top{% endif %}">
+                            · {{ category.percentage }}%
+                        </span>
+                    </span>
+                </div>
+                <div class="report-bar-track">
+                    <div
+                        class="report-bar-fill{% if loop.first %} report-bar-top{% endif %}"
+                        style="width: {{ category.percentage }}%"
+                    ></div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>

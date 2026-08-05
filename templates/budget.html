@@ -20,7 +20,11 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/budget.css') }}">
 </head>
 <body class="dashboard-body">
-
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% for category, message in messages %}
+        <p class="auth-error">{{ message }}</p>
+    {% endfor %}
+{% endwith %}
     <!-- Sidebar -->
     <aside class="sidebar">
 
