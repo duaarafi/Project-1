@@ -247,3 +247,49 @@ def budget():
         })
 
     return render_template('budget.html', user=current_user, categories=categories)
+
+# Reports Page
+@app.route('/reports')
+@login_required
+def reports():
+    now = datetime.datetime.now()
+
+    # Get all expenses this month
+    expenses = Expense.query.filter_by(user_id=current_user.id).filter(
+        db.extract('month', Expense.date) == now.month,
+        db.extract('year', Expense.date) == now.year
+    ).all()
+
+    # Calculate total spent
+    
+    total_spent = sum(float(e.amount) for e in expenses)
+
+    # Calculate spending per category
+    category_totals = {}
+    for e in expenses:
+        category_totals[e.category] = category_totals.get(e.category, 0) + float(e.amount)
+
+    # Build ranked category list
+    categories = []
+    for name, spent in sorted(category_totals.items(), key=lambda x: x[1], reverse=True):
+        percentage = round((spent / total_spent) * 100) if total_spent > 0 else 0
+        categories.append({
+            'name': name,
+            'spent': f'{spent:,.2f}',
+            'percentage': percentage
+        })
+
+    # Top category info
+    if categories:
+        top_category = categories[0]['name']
+        top_percentage = categories[0]['percentage']
+    else:
+        top_category = None
+        top_percentage = 0
+
+    return render_template('reports.html',
+        user=current_user,
+        categories=categories,
+        top_category=top_category,
+        top_percentage=top_percentage
+    )
