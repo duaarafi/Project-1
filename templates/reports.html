@@ -18,6 +18,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/reports.css') }}">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="dashboard-body">
 
@@ -86,33 +89,60 @@
         </div>
         {% endif %}
 
-        <!-- Ranked Category List -->
-        <div class="report-list">
+        <!-- Color map: category name -> color -->
+        {% set color_map = {
+            "Food": "#930500",
+            "Transport": "#95BBEA",
+            "Shopping": "#F59E0B",
+            "Medical": "#10B981",
+            "Education": "#C9C4E8",
+            "Entertainment": "#EF4444",
+            "Other": "#6B7074"
+        } %}
 
-            <div class="report-list-header">
-                Ranked by spending
-            </div>
+        <!-- Build a matching color list, in the same order as categories -->
+        {% set color_list = [] %}
+        {% for c in categories %}
+            {% set _ = color_list.append(color_map.get(c.name, '#6B7074')) %}
+        {% endfor %}
 
-            {% for category in categories %}
-            <div class="report-row">
-                <div class="report-row-top">
-                    <span class="report-category-name">{{ category.name }}</span>
-                    <span class="report-category-amount">
-                        ₹{{ category.spent }}
-                        <span class="report-category-percent{% if loop.first %} report-percent-top{% endif %}">
-                            · {{ category.percentage }}%
+        {% set amount_list = [] %}
+{% for c in categories %}
+    {% set clean_amount = c.spent | string | replace(",", "") | float %}
+    {% set _ = amount_list.append(clean_amount) %}
+{% endfor %}
+
+        <!-- Chart Card -->
+        <div class="report-card">
+            <div class="report-card-inner">
+
+                <!-- Pie Chart -->
+                <div class="report-chart-wrapper">
+                    <canvas 
+    id="categoryChart"
+    data-labels='{{ categories | map(attribute="name") | list | tojson }}'
+    data-amounts='{{ amount_list | tojson }}'
+    data-colors='{{ color_list | tojson }}'
+></canvas>
+
+                </div>
+
+                <!-- Legend List -->
+                <div class="report-legend">
+                    {% for category in categories %}
+                    <div class="report-legend-row">
+                        <div class="report-legend-label">
+                            <span class="report-legend-dot" style="background-color: {{ color_map.get(category.name, '#6B7074') }};"></span>
+                            <span>{{ category.name }}</span>
+                        </div>
+                        <span class="report-legend-amount">
+                            ₹{{ category.spent }} · {{ category.percentage }}%
                         </span>
-                    </span>
+                    </div>
+                    {% endfor %}
                 </div>
-                <div class="report-bar-track">
-                    <div
-                        class="report-bar-fill{% if loop.first %} report-bar-top{% endif %}"
-                        style="width: {{ category.percentage }}%"
-                    ></div>
-                </div>
-            </div>
-            {% endfor %}
 
+            </div>
         </div>
 
     </main>

@@ -110,3 +110,36 @@ for(var i = 0; i < bars.length; i++)
         bars[i].style.backgroundColor = "#10B981";
     }
 }
+
+// Reports pie chart
+var chartCanvas = document.getElementById("categoryChart");
+
+if(chartCanvas)
+{
+    var chartLabels = JSON.parse(chartCanvas.dataset.labels);
+    var chartAmounts = JSON.parse(chartCanvas.dataset.amounts);
+    var chartColors = JSON.parse(chartCanvas.dataset.colors);
+
+    new Chart(chartCanvas, {
+        type: "doughnut",
+        data: {
+            labels: chartLabels,
+            datasets: [{
+                data: chartAmounts,
+                backgroundColor: chartColors,
+                borderColor: "#FFF8E7",
+                borderWidth: 3
+            }]
+        },
+        options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                display: false
+            }
+        },
+        cutout: "60%"
+    }
+    });
+}

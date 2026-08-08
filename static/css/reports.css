@@ -35,74 +35,68 @@
 }
 
 /* ========================
-   RANKED CATEGORY LIST
+   PIE CHART CARD
 ======================== */
-.report-list {
+.report-card {
     background-color: var(--color-white);
     border-radius: 16px;
     border: 1px solid var(--color-border);
-    overflow: hidden;
+    padding: 28px;
 }
 
-.report-list-header {
-    padding: 18px 28px;
-    font-family: var(--font-heading);
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: var(--color-heading);
+.report-card-inner {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.report-chart-wrapper {
+    width: 180px;
+    height: 180px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+/* ========================
+   LEGEND LIST
+======================== */
+.report-legend {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.report-legend-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
     border-bottom: 1px solid var(--color-border);
 }
 
-.report-row {
-    padding: 20px 28px;
-    border-bottom: 1px solid var(--color-border);
-}
-
-.report-row:last-child {
+.report-legend-row:last-child {
     border-bottom: none;
 }
 
-.report-row-top {
+.report-legend-label {
     display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 10px;
-}
-
-.report-category-name {
+    align-items: center;
+    gap: 10px;
     font-size: 0.9rem;
-    font-weight: 600;
+    font-weight: 500;
     color: #2C2C2A;
 }
 
-.report-category-amount {
+.report-legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.report-legend-amount {
     font-size: 0.85rem;
     color: var(--color-body);
-}
-
-.report-category-percent {
-    color: var(--color-heading);
-    font-weight: 600;
-}
-
-.report-percent-top {
-    color: var(--color-primary);
-}
-
-.report-bar-track {
-    height: 14px;
-    background-color: var(--color-background);
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.report-bar-fill {
-    height: 100%;
-    background-color: var(--color-heading);
-    border-radius: 10px;
-    transition: width 0.4s ease;
-}
-
-.report-bar-top {
-    background-color: var(--color-primary);
 }
